@@ -1,0 +1,115 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Allergean
+
+Simple API enabling developers to access information about Food Allergens in Grocery Products.
+
+# Group Allergens
+
+## Product Collection [/allergens]
+
+### List All Allergens [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "description": "obiloviny obsahující lepek a výrobky z nich"
+            },
+            {
+                "id": 2,
+                "description": "korýši a výrobky z nich"
+            },
+            {
+                "id": 3,
+                "description": "vejce a výrobky z nich"
+            },
+            {
+                "id": 4,
+                "description": "ryby a výrobky z nich"
+            },
+            {
+                "id": 5,
+                "description": "podzemnice olejná (arašídy) a výrobky z ní"
+            },
+            {
+                "id": 6,
+                "description": "sójové boby (sója) a výrobky z nich"
+            },
+            {
+                "id": 7,
+                "description": "mléko a výrobky z nich"
+            },
+            {
+                "id": 8,
+                "description": "skořápkové plody a výrobky z nich – všechny druhy ořechů"
+            },
+            {
+                "id": 9,
+                "description": "celer a výrobky z něj"
+            },
+            {
+                "id": 10,
+                "description": "hořčice a výrobky z ní"
+            },
+            {
+                "id": 11,
+                "description": "sezamová semena (sezam) a výrobky z nich"
+            },
+            {
+                "id": 12,
+                "description": "oxid siřičitý a siřičitany v koncentracích oxidu siřičitého vyšších než 10 mg/kg"
+            },
+            {
+                "id": 13,
+                "description": "vlčí bob (lupina) a výrobky z něj"
+            },
+            {
+                "id": 14,
+                "description": "měkkýši a výrobky z nich"
+            }
+        ]
+
+## Product Collection [/allergens/{id}]
+
++ Parameters
+    + id (number, required) - ID of the Allergen
+
+### List All Allergens [GET]
+
++ Response 200 (application/json)
+
+        {}
+
+# Group Products
+
+## Product Collection [/products]
+
+### List All Products [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "ean": 8593807234713,
+                "name": "OLMA Mléko čersrvé 1,5l",
+                "allergens": [7]
+            }
+        ]
+
+## Product [/products/{ean}]
+
++ Parameters
+    + ean (string, required) - EAN of the product
+
+### Retrieve a single Product [GET]
+
++ Response 200 (application/json)
+
+        {
+            "ean": 8593807234713,
+            "name": "OLMA Mléko čersrvé 1,5l",
+            "allergens": [7]
+        }
